@@ -18,12 +18,18 @@ function init() {
 
 function view(state) {
   return h('div', [
-    toggleBox({ 
-      thisID: 'toggleBox'
+    h('div.box',  [toggleBox({ 
+      thisID: 'toggleBox1'
     , parentState: state
-    , top: h('h1', 'top') 
-    , bottom: h('h1', 'bottom') 
-    })
+    , top: h('h1', 'top 1') 
+    , bottom: h('h1', 'bottom 1') 
+    })])
+  , h('div.box', [toggleBox({ 
+      thisID: 'toggleBox2'
+    , parentState: state
+    , top: h('h1', 'top 2') 
+    , bottom: h('h1', 'bottom 2') 
+    })])
   ])
 }
 

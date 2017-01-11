@@ -7,7 +7,6 @@ module.exports = state => {
   return h('div'
   , {
       attrs: {'ff-toggle-box': ''}
-    , class: {yes: 'asdf'}
     }
   , [
     h('div'
