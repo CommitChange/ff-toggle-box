@@ -1,4 +1,5 @@
 @import 'normalize.css';
+@import './index.css';
 
 * {
   box-sizing: border-box;
@@ -11,16 +12,25 @@ body {
   background: #fbfbfb;
 }
 
-.hide {
-  display: none;
-}
-
 .box {
-  border: 1px solid grey;
   background: white;
-  margin: 1rem 0;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 3px;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
 }
 
+[ff-toggle-box-top],  
+[ff-toggle-box-bottom] {
+  padding: 1rem;
+}
 
+[ff-toggle-box-top] {
+  background: rgba(0, 255, 249, 0.1);
+}
+
+[ff-toggle-box-bottom-wrapper] {
+  transition: all .2s ease;
+}
 
 

@@ -1,1 +1,20 @@
+[ff-toggle-box] {
+  position: relative;
+}
+
+[ff-toggle-box-top] {
+  cursor: pointer;
+}
+
+[ff-toggle-box-bottom-wrapper] {
+  position: relative;
+  overflow: hidden;
+}
+
+[ff-toggle-box-bottom] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 
