@@ -12,8 +12,8 @@ const patch = snabbdom.init([
 
 import toggleBox from '../index.js'
 
-function initParent (top, bottom, IDs) {
-  const state = {toggleBoxIDs$ : flyd.stream(IDs)}
+function initParent (top, bottom) {
+  const state = {toggleBoxIDs$ : flyd.stream({})}
 
   const view = state => h('body', [
     toggleBox({ 
@@ -24,22 +24,59 @@ function initParent (top, bottom, IDs) {
       })
     ])
 
-  const container = document.body
+  let container = document.createElement('div')
   let streams = render({patch, container, view, state})
   streams.state = state
   return streams
 }
 
-const q = s => document.querySelector(s)
-
 describe('ff-toggle-box', () => {
 
   it('it sets the innerHTML of the top element correctly', () => {
-    const streams = initParent(h('h1', 'hello'), '', {})
+    const streams = initParent(h('h1', 'hello'), '')
     const html = streams.dom$().querySelector('[data-ff-toggle-box-top]').innerHTML
     expect(html).toEqual('<h1>hello</h1>')
   })
 
+  it('it sets the innerHTML of the bottom element correctly', () => {
+    const streams = initParent('', h('h1', 'hello'))
+    const html = streams.dom$().querySelector('[data-ff-toggle-box-bottom]').innerHTML
+    expect(html).toEqual('<h1>hello</h1>')
+  })
+
+  it('it correctly sets the is-open attribute', () => {
+    const streams = initParent('', '')
+    streams.state.toggleBoxIDs$({tb1: true})
+    const isOpen = streams.dom$()
+      .querySelector('[data-ff-toggle-box]')
+      .getAttribute('data-ff-toggle-box')
+    expect(isOpen).toEqual('is-open')
+  })
+
+  it('it correctly sets the is-closed attribute', () => {
+    const streams = initParent('', '')
+    streams.state.toggleBoxIDs$({tb1: false})
+    const isClosed = streams.dom$()
+      .querySelector('[data-ff-toggle-box]')
+      .getAttribute('data-ff-toggle-box')
+    expect(isClosed).toEqual('is-closed')
+  })
+
+  it('it sets the bottom-wrapper height to 0 when is-closed', () => {
+    const streams = initParent('', h('h1', 'hello'))
+    const height = streams.dom$().querySelector('[data-ff-toggle-box-bottom-wrapper]').style.height
+    expect(height).toEqual('0px')
+  })
+
+  // TODO (fix: offsetHeight is returing undefined)
+  // it('it sets the bottom-wrapper height to 0 when is-closed', () => {
+  //   const streams = initParent('', h('div', [h('h1', 'hello')]))
+  //   streams.state.toggleBoxIDs$({tb1: true})
+  //   const offsetHeight = streams.dom$().querySelector('[data-ff-toggle-box-bottom]').offsetHeight
+  //   const styleHeight = streams.dom$().querySelector('[data-ff-toggle-box-bottom-wrapper]').style.height
+  //   console.log({offsetHeight, styleHeight})
+  //   expect('0px').toEqual('0px')
+  // })
 
 })
 
