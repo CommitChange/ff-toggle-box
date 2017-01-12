@@ -62,21 +62,5 @@ describe('ff-toggle-box', () => {
     expect(isClosed).toEqual('is-closed')
   })
 
-  it('it sets the bottom-wrapper height to 0 when is-closed', () => {
-    const streams = initParent('', h('h1', 'hello'))
-    const height = streams.dom$().querySelector('[data-ff-toggle-box-bottom-wrapper]').style.height
-    expect(height).toEqual('0px')
-  })
-
-  // TODO (fix: offsetHeight is returing undefined)
-  // it('it sets the bottom-wrapper height to 0 when is-closed', () => {
-  //   const streams = initParent('', h('div', [h('h1', 'hello')]))
-  //   streams.state.toggleBoxIDs$({tb1: true})
-  //   const offsetHeight = streams.dom$().querySelector('[data-ff-toggle-box-bottom]').offsetHeight
-  //   const styleHeight = streams.dom$().querySelector('[data-ff-toggle-box-bottom-wrapper]').style.height
-  //   console.log({offsetHeight, styleHeight})
-  //   expect('0px').toEqual('0px')
-  // })
-
 })
 
