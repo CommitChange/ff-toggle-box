@@ -1,17 +1,17 @@
-[ff-toggle-box] {
+[data-ff-toggle-box] {
   position: relative;
 }
 
-[ff-toggle-box-top] {
+[data-ff-toggle-box-top] {
   cursor: pointer;
 }
 
-[ff-toggle-box-bottom-wrapper] {
+[data-ff-toggle-box-bottom-wrapper] {
   position: relative;
   overflow: hidden;
 }
 
-[ff-toggle-box-bottom] {
+[data-ff-toggle-box-bottom] {
   position: absolute;
   top: 0;
   left: 0;

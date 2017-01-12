@@ -1,4 +1,3 @@
-import R from 'ramda'
 import flyd from 'flyd'
 import snabbdom from 'snabbdom'
 import h from 'snabbdom/h'
@@ -28,7 +27,7 @@ function view(state) {
       thisID: 'tb1'
     , parentState: state
     , top: top()
-    , bottom: h('h1', 'Large, short text') 
+    , bottom: h('img', {props: {src: 'http://nsm08.casimages.com/img/2013/09/02//13090205363216252611518613.jpg'}})
     })])
   , h('div.box', [toggleBox({ 
       thisID: 'tb2'
@@ -40,8 +39,7 @@ function view(state) {
 }
 
 const patch = snabbdom.init([
-  require("snabbdom/modules/class").default
-, require("snabbdom/modules/style").default
+  require("snabbdom/modules/style").default
 , require("snabbdom/modules/props").default
 , require("snabbdom/modules/eventlisteners").default
 , require("snabbdom/modules/attributes").default

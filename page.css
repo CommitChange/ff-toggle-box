@@ -49,25 +49,25 @@ i.material-icons {
   font-size: 3rem;
 }
 
-[ff-toggle-box-top],  
-[ff-toggle-box-bottom] {
+[data-ff-toggle-box-top],  
+[data-ff-toggle-box-bottom] {
   padding: 1rem;
 }
 
-[ff-toggle-box-top] {
+[data-ff-toggle-box-top] {
   border: 3px solid #f1fff6;
 }
 
-[ff-toggle-box-bottom] {
+[data-ff-toggle-box-bottom] {
   background: #f1fff6;
 }
 
 i.material-icons,
-[ff-toggle-box-bottom-wrapper] {
+[data-ff-toggle-box-bottom-wrapper] {
   transition: all .2s ease;
 }
 
-[ff-toggle-box='is-open'] i {
+[data-ff-toggle-box='is-open'] i {
   transform: rotate(90deg);
 }
 

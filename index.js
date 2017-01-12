@@ -15,7 +15,7 @@ const toggleID = state => ev => {
 const setHeight = state => node => {
   const isOpen = state.parentState.toggleBoxIDs$()[state.thisID]
   const elm = node.elm
-  const height = elm.querySelector('[ff-toggle-box-bottom]').offsetHeight
+  const height = elm.querySelector('[data-ff-toggle-box-bottom]').offsetHeight
   if(isOpen) {
     elm.style.height = height + 'px'
   } else {
@@ -25,26 +25,26 @@ const setHeight = state => node => {
 
 
 const top = state =>
-  h('div', { attrs: {'ff-toggle-box-top': ''},  on: {click: toggleID(state)}}
+  h('div', { attrs: {'data-ff-toggle-box-top': ''},  on: {click: toggleID(state)}}
   , [state.top] || '')
 
 
 const bottom = state => 
  h('div'
-  , {attrs: {'ff-toggle-box-bottom-wrapper': ''}
+  , {attrs: {'data-ff-toggle-box-bottom-wrapper': ''}
     , hook: {
         update: setHeight(state)
       , insert: vnode => {
           window.addEventListener('resize', ev => setHeight(state)(vnode)) 
         }
     }}
-  , [ h('div', {attrs: {'ff-toggle-box-bottom': ''}}, [state.bottom || '']) ])
+  , [ h('div', {attrs: {'data-ff-toggle-box-bottom': ''}}, [state.bottom || '']) ])
 
 
 module.exports = state => {
   return h('div'
   , {
-      attrs: {'ff-toggle-box': state.parentState.toggleBoxIDs$()[state.thisID]
+      attrs: {'data-ff-toggle-box': state.parentState.toggleBoxIDs$()[state.thisID]
         ? 'is-open'
         : 'is-closed'
       }

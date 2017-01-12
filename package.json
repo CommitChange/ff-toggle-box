@@ -5,7 +5,7 @@
   "main": "build.js",
   "style": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest || true",
     "budo": "budo page.js --live -- -t babelify",
     "postcss": "postcss -c postcss.js -w -l",
     "babel": "babel index.js -o build.js",
