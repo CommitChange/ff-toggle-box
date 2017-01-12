@@ -7,28 +7,34 @@ import render from 'flimflam-render'
 import toggleBox from './index.js'
 
 function init() {
-  let state = {
-    toggleBoxIDs$ : flyd.stream({})
-  }
-
-  flyd.map(x => console.log(x), state.toggleBoxIDs$)
-
-  return state
+  return { toggleBoxIDs$ : flyd.stream({}) }
 }
+
+const top = () =>
+  h('div.table', [
+    h('h2.table-cell', 'click me')
+  , h('i.table-cell.material-icons', 'keyboard_arrow_right')
+  ]) 
 
 function view(state) {
   return h('div', [
-    h('div.box',  [toggleBox({ 
-      thisID: 'toggleBox1'
+    h('button', {
+      on: {click: [state.toggleBoxIDs$, {tb1: true, tb2: true}]}
+    }, 'Open all boxes')
+  , h('button', {
+      on: {click: [state.toggleBoxIDs$, {}]}
+    }, 'Close all boxes')
+  , h('div.box',  [toggleBox({ 
+      thisID: 'tb1'
     , parentState: state
-    , top: h('h1', 'top 1') 
-    , bottom: h('h1', 'bottom 1') 
+    , top: top()
+    , bottom: h('h1', 'Large, short text') 
     })])
   , h('div.box', [toggleBox({ 
-      thisID: 'toggleBox2'
+      thisID: 'tb2'
     , parentState: state
-    , top: h('h1', 'top 2') 
-    , bottom: h('h1', 'bottom 2') 
+    , top: top() 
+    , bottom: h('p', 'Lorem ipsum dolor sit amet, vis vocibus maluisset an, ius liber numquam in. Debitis minimum signiferumque ut pri, officiis contentiones eu vix, mel no quot maiestatis persequeris. Ei duo natum possit verterem, te oratio labores sententiae vis. Mea omnes utamur ad, nam dictas delicata et. Assum sententiae eam in, ne eam persius labitur. Cu ignota perpetua vix, lorem prodesset ei vel. Intellegat rationibus complectitur vis ei, qui ut ullum saepe. Usu falli erant et, te tantas percipitur accommodare eos, mel no dicit aperiri. Eripuit omnesque mediocrem et his, ne cum omnis summo scriptorem, oportere comprehensam ei duo. Cibo augue reprehendunt mea et. An quo graeci omittantur, delectus cotidieque ne eum. Lucilius vituperatoribus vel ea. Mel quaeque temporibus id, ei sit oportere expetenda repudiandae. Ut graeci signiferumque vis, putant theophrastus at quo. Id ius ludus eligendi voluptaria. Te pri commodo maiorum, labores definiebas an cum, et labores repudiandae deterruisset sea. Soleat electram consequuntur ius ne, indoctum assueverit cu vis, in pro epicuri adipiscing percipitur. Nec tation conceptam consectetuer no, quo decore appareat euripidis no. Mei id solet discere intellegebat, eu sed quas tritani facilis. Mel ei eruditi dissentiet adversarium, mea ut veri equidem. Vel corpora mandamus in, vel no etiam audiam delicatissimi. Ea vocent habemus assentior per.') 
     })])
   ])
 }

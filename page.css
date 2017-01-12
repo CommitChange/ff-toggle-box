@@ -7,17 +7,46 @@
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   padding: 1rem;
   background: #fbfbfb;
 }
 
-.box {
+p {
+  margin: 0;
+  line-height: 1.7;
+}
+.box,
+button {
+  margin-bottom: 1rem;
   background: white;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 3px;
   box-shadow: 0 0 3px 1px rgba(0,0,0,0.1);
-  margin-bottom: 1rem;
+}
+
+button {
+  margin-right: 1rem;
+  cursor: pointer;
+  font: inherit;
+  padding: .5rem;
+  line-height: 1;
+  overflow: visible;
+  user-select: none;
+}
+
+.table {
+  display: table;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+i.material-icons {
+  font-size: 3rem;
 }
 
 [ff-toggle-box-top],  
@@ -26,11 +55,19 @@ body {
 }
 
 [ff-toggle-box-top] {
-  background: rgba(0, 255, 249, 0.1);
+  border: 3px solid #f1fff6;
 }
 
+[ff-toggle-box-bottom] {
+  background: #f1fff6;
+}
+
+i.material-icons,
 [ff-toggle-box-bottom-wrapper] {
   transition: all .2s ease;
 }
 
+[ff-toggle-box='is-open'] i {
+  transform: rotate(90deg);
+}
 
