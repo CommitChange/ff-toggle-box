@@ -1,7 +1,7 @@
 {
-  "name": "project-name",
+  "name": "ff-toggle-box",
   "version": "0.0.1",
-  "description": "",
+  "description": "ff-toggle-box is comprised of a top section that is always visible, and a bottom section that can be toggled open or toggled close.",
   "main": "build.js",
   "style": "index.js",
   "scripts": {
@@ -11,10 +11,10 @@
     "babel": "babel index.js -o build.js",
     "build-docs": "./build-docs.sh"
   },
-  "author": "author name",
+  "author": "Yutaka Houlette",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gh-user-name/project-name.git"
+    "url": "git+https://github.com/flimflamjs/ff-toggle-box.git"
   },
   "license": "MIT",
   "dependencies": {
