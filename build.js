@@ -14,17 +14,17 @@ var _h2 = _interopRequireDefault(_h);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var toggleID = function toggleID(state) {
+var toggleId = function toggleId(state) {
   return function (ev) {
-    var IDs = state.parentState.toggleBoxIDs$();
-    var thisID = state.thisID;
-    state.parentState.toggleBoxIDs$(_ramda2.default.assoc(thisID, IDs[thisID] ? false : true, IDs));
+    var ids = state.open$();
+    var id = state.id;
+    state.open$(_ramda2.default.assoc(id, ids[id] ? false : true, ids));
   };
 };
 
 var setHeight = function setHeight(state) {
   return function (node) {
-    var isOpen = state.parentState.toggleBoxIDs$()[state.thisID];
+    var isOpen = state.open$()[state.id];
     var elm = node.elm;
     var height = elm.querySelector('[data-ff-toggle-box-bottom]').offsetHeight;
     if (isOpen) {
@@ -36,7 +36,7 @@ var setHeight = function setHeight(state) {
 };
 
 var top = function top(state) {
-  return (0, _h2.default)('div', { attrs: { 'data-ff-toggle-box-top': '' }, on: { click: toggleID(state) } }, [state.top] || '');
+  return (0, _h2.default)('div', { attrs: { 'data-ff-toggle-box-top': '' }, on: { click: toggleId(state) } }, [state.top] || '');
 };
 
 var bottom = function bottom(state) {
@@ -53,7 +53,7 @@ var bottom = function bottom(state) {
 
 module.exports = function (state) {
   return (0, _h2.default)('div', {
-    attrs: { 'data-ff-toggle-box': state.parentState.toggleBoxIDs$()[state.thisID] ? 'is-open' : 'is-closed'
+    attrs: { 'data-ff-toggle-box': state.open$()[state.id] ? 'is-open' : 'is-closed'
     }
   }, [top(state), bottom(state)]);
 };
