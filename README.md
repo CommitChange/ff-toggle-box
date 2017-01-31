@@ -4,8 +4,6 @@ ff-toggle-box is comprised of a top section that is always visible, and a bottom
 
 the top section has a click event attached to it that fires the toggling.
 
-you can also toggle the bottom section for any of the toggle-boxes from your parent component's `toggleBoxIds$` stream.
-
 demo: https://flimflamjs.github.io/ff-toggle-box/
 
 usage:
@@ -13,15 +11,11 @@ usage:
 ```es6
 import toggleBox from 'ff-toggle-box'
 
-// your parent state object should have a key named `toggleBoxIDs$` with it's value set to a stream containing an object:
-const init = () => ({ toggleBoxIDs$ : flyd.stream({}) })
-
-
 const view = state =>
   h('div', [
     toggleBox({ 
-      thisID: 'tb1'
-    , parentState: state
+      id: 'tb1'
+    , open$: state.open$ // should be a stream containing an object
     , top: h('div', 'Click to toggle')
     , bottom: h('div', 'This section is hidden by default')
     })
