@@ -1,6 +1,6 @@
 {
   "name": "ff-toggle-box",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "ff-toggle-box is comprised of a top section that is always visible, and a bottom section that can be toggled open or toggled close.",
   "main": "build.js",
   "style": "index.js",

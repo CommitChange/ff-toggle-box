@@ -22,33 +22,12 @@ var toggleId = function toggleId(state) {
   };
 };
 
-var setHeight = function setHeight(state) {
-  return function (node) {
-    var isOpen = state.open$()[state.id];
-    var elm = node.elm;
-    var height = elm.querySelector('[data-ff-toggle-box-bottom]').offsetHeight;
-    if (isOpen) {
-      elm.style.height = height + 'px';
-    } else {
-      elm.style.height = 0;
-    }
-  };
-};
-
 var top = function top(state) {
   return (0, _h2.default)('div', { attrs: { 'data-ff-toggle-box-top': '' }, on: { click: toggleId(state) } }, [state.top] || '');
 };
 
 var bottom = function bottom(state) {
-  return (0, _h2.default)('div', { attrs: { 'data-ff-toggle-box-bottom-wrapper': '' },
-    hook: {
-      update: setHeight(state),
-      insert: function insert(vnode) {
-        window.addEventListener('resize', function (ev) {
-          return setHeight(state)(vnode);
-        });
-      }
-    } }, [(0, _h2.default)('div', { attrs: { 'data-ff-toggle-box-bottom': '' } }, [state.bottom || ''])]);
+  return (0, _h2.default)('div', { attrs: { 'data-ff-toggle-box-bottom-wrapper': '' } }, [(0, _h2.default)('div', { attrs: { 'data-ff-toggle-box-bottom': '' } }, [state.bottom || ''])]);
 };
 
 module.exports = function (state) {
