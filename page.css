@@ -16,23 +16,13 @@ p {
   margin: 0;
   line-height: 1.7;
 }
-.box,
-button {
+
+.box {
   margin-bottom: 1rem;
   background: white;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 3px;
   box-shadow: 0 0 3px 1px rgba(0,0,0,0.1);
-}
-
-button {
-  margin-right: 1rem;
-  cursor: pointer;
-  font: inherit;
-  padding: .5rem;
-  line-height: 1;
-  overflow: visible;
-  user-select: none;
 }
 
 .table {
@@ -60,11 +50,6 @@ i.material-icons {
 
 [data-ff-toggle-box-bottom] {
   background: #f1fff6;
-}
-
-i.material-icons,
-[data-ff-toggle-box-bottom-wrapper] {
-  transition: all .2s ease;
 }
 
 [data-ff-toggle-box='is-open'] i {

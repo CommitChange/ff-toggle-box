@@ -1,11 +1,10 @@
 {
   "name": "ff-toggle-box",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "ff-toggle-box is comprised of a top section that is always visible, and a bottom section that can be toggled open or toggled close.",
   "main": "build.js",
   "style": "index.js",
   "scripts": {
-    "test": "jest || true",
     "budo": "budo page.js --live -- -t babelify",
     "postcss": "postcss -c postcss.js -w -l",
     "babel": "babel index.js -o build.js",
@@ -34,7 +33,6 @@
     "browserify": "13.3.0",
     "budo": "9.4.1",
     "cssnano": "^3.10.0",
-    "jest": "18.1.0",
     "normalize.css": "^5.0.0",
     "postcss": "5.2.9",
     "postcss-cli": "2.6.0",

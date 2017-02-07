@@ -1,5 +1,5 @@
-[data-ff-toggle-box] {
-  position: relative;
+[data-ff-toggle-box='is-open'] [data-ff-toggle-box-bottom-wrapper] {
+  display: initial;
 }
 
 [data-ff-toggle-box-top] {
@@ -7,14 +7,6 @@
 }
 
 [data-ff-toggle-box-bottom-wrapper] {
-  position: relative;
-  overflow: hidden;
-}
-
-[data-ff-toggle-box-bottom] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  display: none;
 }
 

@@ -27,7 +27,3 @@ this component requires some minimal functional styling, which is included: http
 you can see the styles which were used for the demo here: https://github.com/flimflamjs/ff-toggle-box/blob/master/page.css
 
 
-
-
-
-
